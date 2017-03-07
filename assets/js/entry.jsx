@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Test from './test';
+import Calculator from './calculator';
+
+require('../css/main.css');
 
 ReactDOM.render(
-  <Test />,
+  <Calculator />,
   document.getElementById('container')
 );

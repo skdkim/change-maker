@@ -1,0 +1,58 @@
+.calc {
+  border: 1px solid #9E9E9E;
+  width: 17rem;
+  height: 27rem;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: white;
+  justify-content: space-around;
+}
+
+.title {
+  align-self: center;
+  margin: 1rem;
+}
+
+button {
+  font-size: 1rem;
+  line-height: 2rem;
+  cursor: pointer;
+  background: black;
+  color: #fff;
+  border-style: solid;
+  border-width: 0;
+  overflow: hidden;
+  max-width: 14rem;
+  align-self: center;
+  width: 100%;
+  border: 1px solid black;
+}
+
+input {
+  background-color: rgb(241, 238, 238);
+  border-width: 13px;
+  border-style: none;
+  max-width: 14rem;
+  align-self: center;
+  width: 100%;
+  line-height: 2rem;
+  border: 1px solid #dbdbdb;
+}
+
+.bottom {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 7rem;
+  justify-content: space-around;
+}
+
+html {
+  background-color: rgb(241, 238, 238);
+}
