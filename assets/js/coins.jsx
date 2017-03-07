@@ -1,4 +1,5 @@
 import React from 'react';
+import Coin from './coin';
 
 class Coins extends React.Component {
   constructor(props){
@@ -7,10 +8,10 @@ class Coins extends React.Component {
   render(){
     return(
       <div>
-        <h1>{this.props.centValue}</h1>
-        <h1>{this.props.centValue}</h1>
-        <h1>{this.props.centValue}</h1>
-        <h1>{this.props.centValue}</h1>
+        <Coin />
+        <Coin />
+        <Coin />
+        <Coin />
       </div>
     );
   }
