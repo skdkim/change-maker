@@ -9,10 +9,9 @@ class Noti extends React.Component{
 
   render() {
     return (
-      <div className = "noti">
+      <div className = "noti dpn">
         <span>1</span>
-        
-        </div>
+      </div>
     );
   }
 }

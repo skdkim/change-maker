@@ -9,5 +9,9 @@
 }
 
 .coinValue {
-  transform: translate(36%, 80%);
+  transform: translate(36%, 84%);
+}
+
+.sv {
+  transform: translate(43%, 84%);
 }

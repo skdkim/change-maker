@@ -1,6 +1,5 @@
 .calc {
-  border: 1px solid #9E9E9E;
-  width: 17rem;
+  box-shadow: 1px 1px 3px #d2cbcb;  width: 17rem;
   height: 27rem;
   display: flex;
   flex-direction: column;
@@ -43,6 +42,7 @@ input {
   width: 100%;
   line-height: 2rem;
   border: 1px solid #dbdbdb;
+  direction:rtl;
 }
 
 .bottom {

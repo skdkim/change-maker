@@ -6,12 +6,14 @@ require('../css/coin.css');
 class Coin extends React.Component{
   constructor(props){
     super();
+
   }
 
   render(){
+
     return(
       <div className = "coin">
-        <div className = "coinValue">25</div>
+        <div className = {"coinValue" + (this.props.value >= 10 ? "" : " sv")}>{this.props.value}</div>
         <Noti />
       </div>
     );
