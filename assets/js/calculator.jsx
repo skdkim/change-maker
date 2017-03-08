@@ -8,21 +8,24 @@ class Calculator extends React.Component {
     super();
     this.state = {
       centValue : "",
-      calcValue : ""
+      calcValue : "",
+      pressed : false
     };
   }
 
 handleInput(e){
   e.preventDefault();
   this.setState({
-    centValue : e.target.value
+    centValue : e.target.value,
+    pressed : false
   });
 }
 
 handleSubmit(e){
   e.preventDefault();
   this.setState({
-    calcValue : this.state.centValue
+    calcValue : this.state.centValue,
+    pressed : true
   });
 }
 
@@ -30,10 +33,10 @@ handleSubmit(e){
     return(
       <div className = "calc">
         <h1 className = "title">COIN COUNTER</h1>
-        <Coins centValue = {this.state.calcValue}/>
+        <Coins centValue={this.state.calcValue} pressed={this.state.pressed}/>
         <div className = "bottom">
-          <input value = {this.state.centValue} onChange = {(e) => this.handleInput(e)}></input>
-          <button onClick = {(e) => this.handleSubmit(e)}>CALCULATE</button>
+          <input value={this.state.centValue} onChange={(e) => this.handleInput(e)}></input>
+          <button onClick={(e) => this.handleSubmit(e)}>CALCULATE</button>
         </div>
       </div>
     );

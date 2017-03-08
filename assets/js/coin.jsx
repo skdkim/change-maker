@@ -13,8 +13,8 @@ class Coin extends React.Component{
 
     return(
       <div className = "coin">
-        <div className = {"coinValue" + (this.props.value >= 10 ? "" : " sv")}>{this.props.value}</div>
-        <Noti />
+        <div className={"coinValue" + (this.props.value >= 10 ? "" : " sv")}>{this.props.value}</div>
+        <Noti pressed={this.props.pressed}/>
       </div>
     );
   }
