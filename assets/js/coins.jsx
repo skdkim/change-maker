@@ -15,7 +15,7 @@ class Coins extends React.Component {
   }
   render(){
     return(
-      <div className = "coinTray">
+      <div className="coinTray">
         <Coin value={this.state.coin1} pressed={this.props.pressed}/>
         <Coin value={this.state.coin2} pressed={this.props.pressed}/>
         <Coin value={this.state.coin3} pressed={this.props.pressed}/>

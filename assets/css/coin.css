@@ -8,16 +8,37 @@
   color: #635f5f;
 }
 
-.coin:hover{
-  cursor: ns-resize;
-}
-
 .coinValue {
   transform: translate(0%, 84%);
   display: flex;
   justify-content: center;
   margin: 0;
+}
 
+.topOverlay {
+  border-radius: 50px 50px 0 0;
+  height: 2rem;
+  position: relative;
+  opacity: .5;
+  transform: translate(0%, -75%);
+}
+
+.bottomOverlay {
+  border-radius: 0 0 50px 50px;
+  height: 2rem;
+  position: relative;
+  opacity: .5;
+  transform: translate(0%, -75%);
+}
+
+.topOverlay:hover {
+  background-color: green;
+  cursor: n-resize;
+}
+
+.bottomOverlay:hover {
+  background-color: red;
+  cursor: s-resize;
 }
 
 /*.sv {

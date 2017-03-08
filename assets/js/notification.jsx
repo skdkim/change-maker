@@ -9,7 +9,7 @@ class Noti extends React.Component{
 
   render() {
     return (
-      <div className = {"noti " + (this.props.pressed ? "" : "dpn")}>
+      <div className={"noti " + (this.props.pressed ? "" : "dpn")}>
         <span>1</span>
       </div>
     );

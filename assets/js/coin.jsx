@@ -6,20 +6,38 @@ require('../css/coin.css');
 class Coin extends React.Component{
   constructor(props){
     super();
-
+    this.state = {
+      coin : props.value
+    };
   }
 
-  handleChange(e){
+  handleUpClick(e){
     e.preventDefault();
-    console.log('hello');
+    if (this.state.coin !== 1){
+      this.setState({
+        coin : this.state.coin += 1
+      });
+    }
+  }
+
+  handleDownClick(e){
+    e.preventDefault();
+    if (this.state.coin !== 1){
+      this.setState({
+        coin : this.state.coin -= 1
+      });
+    }
   }
 
   render(){
 
     return(
-      <div className = "coin">
-        <div onClick={(e) => this.handleChange(e)} className="coinValue">{this.props.value}</div>
+      <div className="coin">
+        <div className="coinValue">{this.state.coin}</div>
         <Noti pressed={this.props.pressed}/>
+
+        <div className="topOverlay" onClick={(e) => this.handleUpClick(e)}/>
+        <div className="bottomOverlay" onClick={(e) => this.handleDownClick(e)}/>
       </div>
     );
   }

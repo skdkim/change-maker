@@ -31,10 +31,10 @@ handleSubmit(e){
 
   render(){
     return(
-      <div className = "calc">
-        <h1 className = "title">COIN COUNTER</h1>
+      <div className="calc">
+        <h1 className="title">COIN COUNTER</h1>
         <Coins centValue={this.state.calcValue} pressed={this.state.pressed}/>
-        <div className = "bottom">
+        <div className="bottom">
           <input value={this.state.centValue} onChange={(e) => this.handleInput(e)}></input>
           <button onClick={(e) => this.handleSubmit(e)}>CALCULATE</button>
         </div>
