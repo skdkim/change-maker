@@ -17,8 +17,8 @@ class Coins extends React.Component {
 
   handleChange(e){
     const coin = e.id;
-    const direction = e.className === "topOverlay" ? "add" : "subtract";
-
+    const direction = e.className[0] === "t" ? "add" : "subtract";
+    
     // to-do
 
     // Either throw and error message when calculate is clicked or put in
