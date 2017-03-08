@@ -12,31 +12,28 @@ class Coin extends React.Component{
   }
 
   handleUpClick(e){
-    e.preventDefault();
-    if (this.state.coin !== 1){
-      this.setState({
-        coin : this.state.coin += 1
-      });
-    }
+    // debugger
+    this.props.onChange(e.target);
   }
 
   handleDownClick(e){
     e.preventDefault();
-    if (this.state.coin !== 1){
-      this.setState({
-        coin : this.state.coin -= 1
-      });
-    }
+    this.setState({
+      coin : this.state.coin -= 1
+    });
   }
 
   render(){
+    if(this.props.pressed){
+      console.log("pressed!");
+    }
 
     return(
       <div className="coin">
-        <div className="coinValue">{this.state.coin}</div>
+        <div className="coinValue">{this.props.value}</div>
         <Noti pressed={this.props.pressed}/>
 
-        <div className="topOverlay" onClick={(e) => this.handleUpClick(e)}/>
+        <div className="topOverlay" id={this.props.idx} onClick={(e) => this.handleUpClick(e)}/>
         <div className="bottomOverlay" onClick={(e) => this.handleDownClick(e)}/>
       </div>
     );
