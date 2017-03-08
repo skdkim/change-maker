@@ -1,5 +1,7 @@
 import React from 'react';
 
+require('../css/notification.css');
+
 class Noti extends React.Component{
   constructor(props){
     super();
@@ -7,7 +9,10 @@ class Noti extends React.Component{
 
   render() {
     return (
-      <div className = "noti">1</div>
+      <div className = "noti">
+        <span>1</span>
+        
+        </div>
     );
   }
 }

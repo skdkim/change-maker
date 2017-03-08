@@ -1,0 +1,19 @@
+.noti {
+  border-radius: 50px;
+  background-color: black;
+  height: 1rem;
+  width: 1rem;
+  transform: translate(300%, -157%);
+}
+
+.noti span{
+  position: relative;
+  top: -6px;
+  left: 5px;
+  font-size: .6rem;
+  color: white;
+}
+
+.dpn {
+  display: none;
+}
