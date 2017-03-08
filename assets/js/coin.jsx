@@ -1,6 +1,8 @@
 import React from 'react';
 import Noti from './notification';
 
+require('../css/coin.css');
+
 class Coin extends React.Component{
   constructor(props){
     super();
@@ -8,8 +10,8 @@ class Coin extends React.Component{
 
   render(){
     return(
-      <div>
-        <div>Coin!</div>
+      <div className = "coin">
+        <div className = "coinValue">25</div>
         <Noti />
       </div>
     );

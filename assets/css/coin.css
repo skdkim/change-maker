@@ -1,0 +1,13 @@
+.coin {
+  background-color: #bbbbbb;
+  border-radius: 50px;
+  height: 4rem;
+  width: 4rem;
+  margin: 1rem 1.5rem;
+  position: relative;
+  color: #635f5f;
+}
+
+.coinValue {
+  transform: translate(36%, 80%);
+}

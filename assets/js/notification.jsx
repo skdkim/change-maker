@@ -7,7 +7,7 @@ class Noti extends React.Component{
 
   render() {
     return (
-      <div>Noti!</div>
+      <div className = "noti">1</div>
     );
   }
 }
