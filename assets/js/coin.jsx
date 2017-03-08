@@ -12,15 +12,11 @@ class Coin extends React.Component{
   }
 
   handleUpClick(e){
-    // debugger
     this.props.onChange(e.target);
   }
 
   handleDownClick(e){
-    e.preventDefault();
-    this.setState({
-      coin : this.state.coin -= 1
-    });
+    this.props.onChange(e.target);
   }
 
   render(){
@@ -34,7 +30,7 @@ class Coin extends React.Component{
         <Noti pressed={this.props.pressed}/>
 
         <div className="topOverlay" id={this.props.idx} onClick={(e) => this.handleUpClick(e)}/>
-        <div className="bottomOverlay" onClick={(e) => this.handleDownClick(e)}/>
+        <div className="bottomOverlay" id={this.props.idx} onClick={(e) => this.handleDownClick(e)}/>
       </div>
     );
   }

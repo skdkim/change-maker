@@ -17,22 +17,33 @@ class Coins extends React.Component {
 
   handleChange(e){
     const coin = e.id;
-    this.setState({
-      coin : this.state[coin] += 1
-    });
-    console.log("changed!");
+    const direction = e.className === "topOverlay" ? "add" : "subtract";
+
+    if (direction === "add"){
+      this.setState({
+        coin : this.state[coin] += 1
+      });
+    } else {
+      this.setState({
+        coin : this.state[coin] -= 1
+      });
+    }
   }
 
   render(){
     return(
       <div className="coinTray">
-        <Coin idx={'coin1'} value={this.state.coin1} pressed={this.props.pressed} allCoins={this.state} onChange={(e) => this.handleChange(e)}/>
+        <Coin idx={'coin1'} value={this.state.coin1} pressed={this.props.pressed}
+          allCoins={this.state} onChange={(e) => this.handleChange(e)}/>
 
-        <Coin idx={'coin2'} value={this.state.coin2} pressed={this.props.pressed} allCoins={this.state} onChange={(e) => this.handleChange(e)}/>
+        <Coin idx={'coin2'} value={this.state.coin2} pressed={this.props.pressed}
+          allCoins={this.state} onChange={(e) => this.handleChange(e)}/>
 
-        <Coin idx={'coin3'} value={this.state.coin3} pressed={this.props.pressed} allCoins={this.state} onChange={(e) => this.handleChange(e)}/>
+        <Coin idx={'coin3'} value={this.state.coin3} pressed={this.props.pressed}
+          allCoins={this.state} onChange={(e) => this.handleChange(e)}/>
 
-        <Coin idx={'coin4'} value={this.state.coin4} pressed={this.props.pressed} allCoins={this.state} onChange={(e) => this.handleChange(e)}/>
+        <Coin idx={'coin4'} value={this.state.coin4} pressed={this.props.pressed}
+          allCoins={this.state} onChange={(e) => this.handleChange(e)}/>
 
       </div>
     );
