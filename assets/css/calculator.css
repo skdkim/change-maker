@@ -42,7 +42,11 @@ input {
   width: 100%;
   line-height: 2rem;
   border: 1px solid #dbdbdb;
-  direction:rtl;
+  direction: rtl;
+  padding-right: 1rem;
+  font-size: 1rem;
+  color: transparent;
+  text-shadow: 0 0 0 black;
 }
 
 .bottom {
