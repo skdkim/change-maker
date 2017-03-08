@@ -8,10 +8,18 @@
   color: #635f5f;
 }
 
-.coinValue {
-  transform: translate(36%, 84%);
+.coin:hover{
+  cursor: ns-resize;
 }
 
-.sv {
-  transform: translate(43%, 84%);
+.coinValue {
+  transform: translate(0%, 84%);
+  display: flex;
+  justify-content: center;
+  margin: 0;
+
 }
+
+/*.sv {
+  transform: translate(43%, 84%);
+}*/

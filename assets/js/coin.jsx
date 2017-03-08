@@ -9,11 +9,16 @@ class Coin extends React.Component{
 
   }
 
+  handleChange(e){
+    e.preventDefault();
+    console.log('hello');
+  }
+
   render(){
 
     return(
       <div className = "coin">
-        <div className={"coinValue" + (this.props.value >= 10 ? "" : " sv")}>{this.props.value}</div>
+        <div onClick={(e) => this.handleChange(e)} className="coinValue">{this.props.value}</div>
         <Noti pressed={this.props.pressed}/>
       </div>
     );
