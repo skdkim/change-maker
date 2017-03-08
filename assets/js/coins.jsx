@@ -19,6 +19,16 @@ class Coins extends React.Component {
     const coin = e.id;
     const direction = e.className === "topOverlay" ? "add" : "subtract";
 
+    // to-do
+
+    // Either throw and error message when calculate is clicked or put in
+    // that logic in here right now
+    // there needs to be a 1 and there can't be duplicate coins
+
+    // calculating coin algorithm should be in here
+    // it should decide how much of each coin is needed and send that down
+    // into props into coin and from coin to notification
+
     if (direction === "add"){
       this.setState({
         coin : this.state[coin] += 1
@@ -44,7 +54,6 @@ class Coins extends React.Component {
 
         <Coin idx={'coin4'} value={this.state.coin4} pressed={this.props.pressed}
           allCoins={this.state} onChange={(e) => this.handleChange(e)}/>
-
       </div>
     );
   }

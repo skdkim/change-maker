@@ -7,7 +7,7 @@ class Coin extends React.Component{
   constructor(props){
     super();
     this.state = {
-      coin : props.value
+      coin : props.value,
     };
   }
 
@@ -23,14 +23,15 @@ class Coin extends React.Component{
     if(this.props.pressed){
       console.log("pressed!");
     }
-
     return(
       <div className="coin">
         <div className="coinValue">{this.props.value}</div>
         <Noti pressed={this.props.pressed}/>
 
-        <div className="topOverlay" id={this.props.idx} onClick={(e) => this.handleUpClick(e)}/>
-        <div className="bottomOverlay" id={this.props.idx} onClick={(e) => this.handleDownClick(e)}/>
+        <div className={"topOverlay " + (this.props.pressed ? "notiOn" : "notiOff")}
+          id={this.props.idx} onClick={(e) => this.handleUpClick(e)}/>
+        <div className={"bottomOverlay "  + (this.props.pressed ? "notiOn" : "notiOff")}
+          id={this.props.idx} onClick={(e) => this.handleDownClick(e)}/>
       </div>
     );
   }
