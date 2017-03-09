@@ -16,7 +16,8 @@ class Calculator extends React.Component {
         coin3 : 5,
         coin4 : 1
       },
-      allNoti : {}
+      allNoti : {},
+      errors : ["error1", "error2", "error3"]
     };
   }
 
@@ -30,11 +31,11 @@ class Calculator extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    // debugger
 
     this.setState({
       calcValue : this.state.centValue,
-      pressed : true
+      pressed : true,
+      errors : []
     });
 
     let newNoti = this.countCoins();
@@ -50,6 +51,11 @@ class Calculator extends React.Component {
     let coins = [];
     // debugger
     for (let key in this.state.allCoins){
+      if (this.state.allCoins[key] < 1){
+        this.setState({
+          errors : []
+        });
+      }
       coins.push(this.state.allCoins[key]);
     }
     return coins.sort((a,b) => a - b).reverse();
@@ -87,6 +93,14 @@ class Calculator extends React.Component {
       <form className="calc" onSubmit={(e) => this.handleSubmit(e)}>
         <h1 className="title">COIN COUNTER</h1>
         <Coins allNoti={this.state.allNoti} centValue={this.state.calcValue} pressed={this.state.pressed} onChange={(e) => this.handleToggle(e)}/>
+        <ul className="errors">
+          {this.state.errors.map((error, idx) => (
+              <li key={idx}>
+                {error}
+              </li>
+            ))
+          }
+        </ul>
         <div className="bottom">
           <input value={this.state.centValue} onChange={(e) => this.handleInput(e)}></input>
           <button>CALCULATE</button>
