@@ -84,14 +84,14 @@ class Calculator extends React.Component {
 
   render(){
     return(
-      <div className="calc">
+      <form className="calc" onSubmit={(e) => this.handleSubmit(e)}>
         <h1 className="title">COIN COUNTER</h1>
         <Coins allNoti={this.state.allNoti} centValue={this.state.calcValue} pressed={this.state.pressed} onChange={(e) => this.handleToggle(e)}/>
         <div className="bottom">
           <input value={this.state.centValue} onChange={(e) => this.handleInput(e)}></input>
-          <button onClick={(e) => this.handleSubmit(e)}>CALCULATE</button>
+          <button>CALCULATE</button>
         </div>
-      </div>
+      </form>
     );
   }
 }
