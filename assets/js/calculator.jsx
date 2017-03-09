@@ -45,7 +45,8 @@ class Calculator extends React.Component {
   handleToggle(e){
     this.setState({
       allCoins : e,
-      errors : []
+      errors : [],
+      allNoti : {}
     });
   }
 
