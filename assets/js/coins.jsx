@@ -12,26 +12,13 @@ class Coins extends React.Component {
       coin2 : 10,
       coin3 : 5,
       coin4 : 1,
-      noti1 : 0,
-      noti2 : 0,
-      noti3 : 0,
-      noti4 : 0,
     };
+    // deleted all noti1-4
   }
 
   handleChange(e){
     const coin = e.id;
     const direction = e.className[0] === "t" ? "add" : "subtract";
-
-    // to-do
-
-    // Either throw and error message when calculate is clicked or put in
-    // that logic in here right now
-    // there needs to be a 1 and there can't be duplicate coins
-
-    // calculating coin algorithm should be in here
-    // it should decide how much of each coin is needed and send that down
-    // into props into coin and from coin to notification
 
     if (direction === "add"){
       this.setState({
@@ -42,6 +29,9 @@ class Coins extends React.Component {
         coin : this.state[coin] -= 1
       });
     }
+    let result = this.countCoins();
+    // debugger
+    this.props.onChange(result);
   }
 
   getAllCoins(){
@@ -58,7 +48,6 @@ class Coins extends React.Component {
     let allCoins = this.getAllCoins();
     let result = {};
     let amt = this.props.centValue;
-    // debugger
     while (allCoins.length > 0){
       let currentCoin = allCoins[0];
       if (amt - currentCoin >= 0){
@@ -73,24 +62,19 @@ class Coins extends React.Component {
         allCoins.shift();
       }
     }
-    this.handleCoins(result);
+    return result;
   }
 
-  handleCoins(coins){
-    this.setState({
-      noti1 : coins[this.state.coin1] || 0,
-      noti2 : coins[this.state.coin1] || 0,
-      noti3 : coins[this.state.coin1] || 0,
-      noti4 : coins[this.state.coin1] || 0
-    });
-  }
-
+  // handleCoins(coins){
+  //   this.setState({
+  //     noti1 : coins[this.state.coin1] || 0,
+  //     noti2 : coins[this.state.coin1] || 0,
+  //     noti3 : coins[this.state.coin1] || 0,
+  //     noti4 : coins[this.state.coin1] || 0
+  //   });
+  // }
 
   render(){
-    // if (this.props.pressed){
-    //   this.countCoins();
-    // }
-
     return(
       <div className="coinTray">
         <Coin idx={'coin1'} value={this.state.coin1} pressed={this.props.pressed}

@@ -20,9 +20,6 @@ class Coin extends React.Component{
   }
 
   render(){
-    if(this.props.pressed){
-      console.log("pressed!");
-    }
     return(
       <div className="coin">
         <div className="coinValue">{this.props.value}</div>
