@@ -20,7 +20,6 @@ class Coin extends React.Component{
   }
 
   render(){
-    // debugger
     return(
       <div className="coin">
         <div className="coinValue">{this.props.value}</div>

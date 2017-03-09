@@ -53,7 +53,7 @@ class Calculator extends React.Component {
   getAllCoins(){
     let coins = [];
     let dupArray = [];
-    // debugger
+
     for (let key in this.state.allCoins){
       if (this.state.allCoins[key] < 1){
         this.setState({
@@ -84,12 +84,10 @@ class Calculator extends React.Component {
   }
 
   countCoins(){
-    // debugger
     let allCoins = this.getAllCoins();
     if (this.state.errors.length > 0){
       return;
     }
-    // debugger
 
     let result = {};
     let cents = this.state.centValue;
@@ -107,7 +105,7 @@ class Calculator extends React.Component {
         allCoins.shift();
       }
     }
-    // debugger
+
     this.setState({
       allNoti : result
     });

@@ -13,7 +13,6 @@ class Coins extends React.Component {
       coin3 : 5,
       coin4 : 1
     };
-    // deleted all noti1-4
   }
 
   handleChange(e){
@@ -32,53 +31,10 @@ class Coins extends React.Component {
 
       this.setState(smallState);
     }
-    // might opt to not change state into an array because I will need
-    // to send down the information with data anyways
-    // let coins = this.getAllCoins();
-    // debugger
     this.props.onChange(this.state);
   }
 
-  // getAllCoins(){
-  //   let coins = [];
-  //   for (let key in this.state){
-  //     coins.push(this.state[key]);
-  //   }
-  //   return coins.sort((a,b) => a - b).reverse();
-  // }
-
-  // countCoins(){
-  //   let allCoins = this.getAllCoins();
-  //   let result = {};
-  //   let amt = this.props.centValue;
-  //   while (allCoins.length > 0){
-  //     let currentCoin = allCoins[0];
-  //     if (amt - currentCoin >= 0){
-  //       if (result[currentCoin]){
-  //         result[currentCoin] += 1;
-  //         amt -= currentCoin;
-  //       } else{
-  //         result[currentCoin] = 1;
-  //         amt -= currentCoin;
-  //       }
-  //     } else {
-  //       allCoins.shift();
-  //     }
-  //   }
-  //   return result;
-  // }
-
-  // handleCoins(coins){
-  //   this.setState({
-  //     noti1 : coins[this.state.coin1] || 0,
-  //     noti2 : coins[this.state.coin1] || 0,
-  //     noti3 : coins[this.state.coin1] || 0,
-  //     noti4 : coins[this.state.coin1] || 0
-  //   });
-  // }
-
   render(){
-    // debugger
     return(
       <div className="coinTray">
         <Coin idx={'coin1'}  value={this.state.coin1} pressed={this.props.pressed}
