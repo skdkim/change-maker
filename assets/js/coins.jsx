@@ -19,22 +19,22 @@ class Coins extends React.Component {
   handleChange(e){
     let coin = e.id;
     let smallState = {};
-    
+
     const direction = e.className[0] === "t" ? "add" : "subtract";
 
     if (direction === "add"){
-      smallState[coin] = this.state[coin] + 1;
+      this.state[coin]++;
+      smallState[coin] = this.state[coin];
       this.setState(smallState);
-      // this.state[coin]++;
     } else {
-      smallState[coin] = this.state[coin] - 1;
+      this.state[coin]--;
+      smallState[coin] = this.state[coin];
 
       this.setState(smallState);
-      // this.state[coin]--;
     }
     let coins = this.getAllCoins();
     // debugger
-    this.props.onChange(this.state);
+    this.props.onChange(coins);
   }
 
   getAllCoins(){

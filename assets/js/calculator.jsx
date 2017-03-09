@@ -31,10 +31,9 @@ class Calculator extends React.Component {
   }
 
   handleToggle(e){
-
-    // this.setState({
-    //   allCoins : e
-    // });
+    this.setState({
+      allCoins : e
+    });
     // debugger
   }
 
@@ -70,7 +69,7 @@ class Calculator extends React.Component {
   }
 
   render(){
-    // debugger
+    debugger
     return(
       <div className="calc">
         <h1 className="title">COIN COUNTER</h1>
