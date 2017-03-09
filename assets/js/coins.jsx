@@ -29,9 +29,9 @@ class Coins extends React.Component {
         coin : this.state[coin] -= 1
       });
     }
-    let result = this.countCoins();
+    let coins = this.getAllCoins();
     // debugger
-    this.props.onChange(result);
+    this.props.onChange(coins);
   }
 
   getAllCoins(){
@@ -44,26 +44,26 @@ class Coins extends React.Component {
     return coins.sort((a,b) => a - b).reverse();
   }
 
-  countCoins(){
-    let allCoins = this.getAllCoins();
-    let result = {};
-    let amt = this.props.centValue;
-    while (allCoins.length > 0){
-      let currentCoin = allCoins[0];
-      if (amt - currentCoin >= 0){
-        if (result[currentCoin]){
-          result[currentCoin] += 1;
-          amt -= currentCoin;
-        } else{
-          result[currentCoin] = 1;
-          amt -= currentCoin;
-        }
-      } else {
-        allCoins.shift();
-      }
-    }
-    return result;
-  }
+  // countCoins(){
+  //   let allCoins = this.getAllCoins();
+  //   let result = {};
+  //   let amt = this.props.centValue;
+  //   while (allCoins.length > 0){
+  //     let currentCoin = allCoins[0];
+  //     if (amt - currentCoin >= 0){
+  //       if (result[currentCoin]){
+  //         result[currentCoin] += 1;
+  //         amt -= currentCoin;
+  //       } else{
+  //         result[currentCoin] = 1;
+  //         amt -= currentCoin;
+  //       }
+  //     } else {
+  //       allCoins.shift();
+  //     }
+  //   }
+  //   return result;
+  // }
 
   // handleCoins(coins){
   //   this.setState({

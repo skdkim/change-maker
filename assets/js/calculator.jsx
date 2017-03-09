@@ -33,6 +33,37 @@ class Calculator extends React.Component {
     debugger
   }
 
+  countCoins(){
+    let allCoins = this.getAllCoins();
+    let result = {};
+    let amt = this.props.centValue;
+    while (allCoins.length > 0){
+      let currentCoin = allCoins[0];
+      if (amt - currentCoin >= 0){
+        if (result[currentCoin]){
+          result[currentCoin] += 1;
+          amt -= currentCoin;
+        } else{
+          result[currentCoin] = 1;
+          amt -= currentCoin;
+        }
+      } else {
+        allCoins.shift();
+      }
+    }
+    return result;
+  }
+
+  getAllCoins(){
+    let coins = [];
+    for (let key in this.state){
+      if (key[0] === "c"){
+        coins.push(this.state[key]);
+      }
+    }
+    return coins.sort((a,b) => a - b).reverse();
+  }
+
   render(){
     return(
       <div className="calc">
