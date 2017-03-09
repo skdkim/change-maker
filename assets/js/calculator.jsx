@@ -9,7 +9,8 @@ class Calculator extends React.Component {
     this.state = {
       centValue : "",
       calcValue : "",
-      pressed : false
+      pressed : false,
+      allCoins : [25,10,5,1]
     };
   }
 
@@ -29,8 +30,12 @@ class Calculator extends React.Component {
     });
   }
 
-  handleTest(e){
-    debugger
+  handleToggle(e){
+
+    // this.setState({
+    //   allCoins : e
+    // });
+    // debugger
   }
 
   countCoins(){
@@ -65,10 +70,11 @@ class Calculator extends React.Component {
   }
 
   render(){
+    // debugger
     return(
       <div className="calc">
         <h1 className="title">COIN COUNTER</h1>
-        <Coins centValue={this.state.calcValue} pressed={this.state.pressed} onChange={(e) => this.handleTest(e)}/>
+        <Coins centValue={this.state.calcValue} pressed={this.state.pressed} onChange={(e) => this.handleToggle(e)}/>
         <div className="bottom">
           <input value={this.state.centValue} onChange={(e) => this.handleInput(e)}></input>
           <button onClick={(e) => this.handleSubmit(e)}>CALCULATE</button>

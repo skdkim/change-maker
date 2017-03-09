@@ -11,35 +11,36 @@ class Coins extends React.Component {
       coin1 : 25,
       coin2 : 10,
       coin3 : 5,
-      coin4 : 1,
+      coin4 : 1
     };
     // deleted all noti1-4
   }
 
   handleChange(e){
-    const coin = e.id;
+    let coin = e.id;
+    let smallState = {};
+    
     const direction = e.className[0] === "t" ? "add" : "subtract";
 
     if (direction === "add"){
-      this.setState({
-        coin : this.state[coin] += 1
-      });
+      smallState[coin] = this.state[coin] + 1;
+      this.setState(smallState);
+      // this.state[coin]++;
     } else {
-      this.setState({
-        coin : this.state[coin] -= 1
-      });
+      smallState[coin] = this.state[coin] - 1;
+
+      this.setState(smallState);
+      // this.state[coin]--;
     }
     let coins = this.getAllCoins();
     // debugger
-    this.props.onChange(coins);
+    this.props.onChange(this.state);
   }
 
   getAllCoins(){
     let coins = [];
     for (let key in this.state){
-      if (key[0] === "c"){
-        coins.push(this.state[key]);
-      }
+      coins.push(this.state[key]);
     }
     return coins.sort((a,b) => a - b).reverse();
   }
