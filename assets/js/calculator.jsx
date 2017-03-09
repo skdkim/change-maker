@@ -17,7 +17,7 @@ class Calculator extends React.Component {
         coin4 : 1
       },
       allNoti : {},
-      errors : ["error1", "error2", "error3"]
+      errors : []
     };
   }
 
@@ -25,7 +25,8 @@ class Calculator extends React.Component {
     e.preventDefault();
     this.setState({
       centValue : e.target.value,
-      pressed : false
+      pressed : false,
+      errors : []
     });
   }
 
@@ -43,27 +44,50 @@ class Calculator extends React.Component {
 
   handleToggle(e){
     this.setState({
-      allCoins : e
+      allCoins : e,
+      errors : []
     });
   }
 
   getAllCoins(){
     let coins = [];
+    let dupArray = [];
     // debugger
     for (let key in this.state.allCoins){
       if (this.state.allCoins[key] < 1){
         this.setState({
-          errors : []
+          errors : [].concat(["Values must be greater than 1"]),
+          allNoti : {}
         });
+        return;
       }
+      if (dupArray[this.state.allCoins[key]]){
+        this.setState({
+          errors : [].concat(["No duplicate values"]),
+          allNoti : {}
+        });
+        return;
+      }
+      dupArray[this.state.allCoins[key]] = true;
       coins.push(this.state.allCoins[key]);
     }
+    if (coins.indexOf(1) === -1){
+      this.setState({
+        errors : [].concat(["Coin of value 1 must be present"]),
+        allNoti : {}
+      });
+      return;
+    }
+
     return coins.sort((a,b) => a - b).reverse();
   }
 
   countCoins(){
     // debugger
     let allCoins = this.getAllCoins();
+    if (this.state.errors.length > 0){
+      return;
+    }
     // debugger
 
     let result = {};
