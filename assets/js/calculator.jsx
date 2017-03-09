@@ -69,7 +69,7 @@ class Calculator extends React.Component {
   }
 
   render(){
-    debugger
+    // debugger
     return(
       <div className="calc">
         <h1 className="title">COIN COUNTER</h1>

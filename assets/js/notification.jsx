@@ -6,7 +6,7 @@ class Noti extends React.Component{
   constructor(props){
     super();
     this.state = {
-      value : 1
+      value : 3
     };
   }
 
