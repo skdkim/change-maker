@@ -16,12 +16,7 @@ class Calculator extends React.Component {
         coin3 : 5,
         coin4 : 1
       },
-      allNoti : {
-        noti1 : 0,
-        noti2 : 0,
-        noti3 : 0,
-        noti4 : 0,
-      }
+      allNoti : {}
     };
   }
 
@@ -35,7 +30,7 @@ class Calculator extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    debugger
+    // debugger
 
     this.setState({
       calcValue : this.state.centValue,
@@ -53,7 +48,7 @@ class Calculator extends React.Component {
 
   getAllCoins(){
     let coins = [];
-    debugger
+    // debugger
     for (let key in this.state.allCoins){
       coins.push(this.state.allCoins[key]);
     }
@@ -61,13 +56,12 @@ class Calculator extends React.Component {
   }
 
   countCoins(){
-    debugger
+    // debugger
     let allCoins = this.getAllCoins();
-    debugger
+    // debugger
 
     let result = {};
-    let cents = 18;
-    // let amt = this.props.centValue;
+    let cents = this.state.centValue;
     while (allCoins.length > 0){
       let currentCoin = allCoins[0];
       if (cents - currentCoin >= 0){
@@ -82,16 +76,17 @@ class Calculator extends React.Component {
         allCoins.shift();
       }
     }
-    debugger
-    return result;
+    // debugger
+    this.setState({
+      allNoti : result
+    });
   }
 
   render(){
-    // debugger
     return(
       <div className="calc">
         <h1 className="title">COIN COUNTER</h1>
-        <Coins centValue={this.state.calcValue} pressed={this.state.pressed} onChange={(e) => this.handleToggle(e)}/>
+        <Coins allNoti={this.state.allNoti} centValue={this.state.calcValue} pressed={this.state.pressed} onChange={(e) => this.handleToggle(e)}/>
         <div className="bottom">
           <input value={this.state.centValue} onChange={(e) => this.handleInput(e)}></input>
           <button onClick={(e) => this.handleSubmit(e)}>CALCULATE</button>

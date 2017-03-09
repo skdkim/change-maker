@@ -13,7 +13,7 @@ class Noti extends React.Component{
   render() {
     return (
       <div className={"noti " + ((this.props.pressed && this.state.value !== 0) ? "" : "dpn")}>
-        <span>{this.state.value}</span>
+        <span>{this.props.value || 0}</span>
       </div>
     );
   }

@@ -78,19 +78,24 @@ class Coins extends React.Component {
   // }
 
   render(){
+    // debugger
     return(
       <div className="coinTray">
-        <Coin idx={'coin1'} value={this.state.coin1} pressed={this.props.pressed}
-          allCoins={this.state} onChange={(e) => this.handleChange(e)}/>
+        <Coin idx={'coin1'}  value={this.state.coin1} pressed={this.props.pressed}
+          allCoins={this.state} onChange={(e) => this.handleChange(e)}
+          notiValue={this.props.allNoti[this.state.coin1]}/>
 
         <Coin idx={'coin2'} value={this.state.coin2} pressed={this.props.pressed}
-          allCoins={this.state} onChange={(e) => this.handleChange(e)}/>
+          allCoins={this.state} onChange={(e) => this.handleChange(e)}
+          notiValue={this.props.allNoti[this.state.coin2]}/>
 
         <Coin idx={'coin3'} value={this.state.coin3} pressed={this.props.pressed}
-          allCoins={this.state} onChange={(e) => this.handleChange(e)}/>
+          allCoins={this.state} onChange={(e) => this.handleChange(e)}
+          notiValue={this.props.allNoti[this.state.coin3]}/>
 
         <Coin idx={'coin4'} value={this.state.coin4} pressed={this.props.pressed}
-          allCoins={this.state} onChange={(e) => this.handleChange(e)}/>
+          allCoins={this.state} onChange={(e) => this.handleChange(e)}
+          notiValue={this.props.allNoti[this.state.coin4]}/>
       </div>
     );
   }
