@@ -32,18 +32,20 @@ class Coins extends React.Component {
 
       this.setState(smallState);
     }
-    let coins = this.getAllCoins();
+    // might opt to not change state into an array because I will need
+    // to send down the information with data anyways
+    // let coins = this.getAllCoins();
     // debugger
-    this.props.onChange(coins);
+    this.props.onChange(this.state);
   }
 
-  getAllCoins(){
-    let coins = [];
-    for (let key in this.state){
-      coins.push(this.state[key]);
-    }
-    return coins.sort((a,b) => a - b).reverse();
-  }
+  // getAllCoins(){
+  //   let coins = [];
+  //   for (let key in this.state){
+  //     coins.push(this.state[key]);
+  //   }
+  //   return coins.sort((a,b) => a - b).reverse();
+  // }
 
   // countCoins(){
   //   let allCoins = this.getAllCoins();

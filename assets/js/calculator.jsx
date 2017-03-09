@@ -10,7 +10,18 @@ class Calculator extends React.Component {
       centValue : "",
       calcValue : "",
       pressed : false,
-      allCoins : [25,10,5,1]
+      allCoins : {
+        coin1 : 25,
+        coin2 : 10,
+        coin3 : 5,
+        coin4 : 1
+      },
+      allNoti : {
+        noti1 : 0,
+        noti2 : 0,
+        noti3 : 0,
+        noti4 : 0,
+      }
     };
   }
 
@@ -24,48 +35,55 @@ class Calculator extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+    debugger
+
     this.setState({
       calcValue : this.state.centValue,
       pressed : true
     });
+
+    let newNoti = this.countCoins();
   }
 
   handleToggle(e){
     this.setState({
       allCoins : e
     });
-    // debugger
+  }
+
+  getAllCoins(){
+    let coins = [];
+    debugger
+    for (let key in this.state.allCoins){
+      coins.push(this.state.allCoins[key]);
+    }
+    return coins.sort((a,b) => a - b).reverse();
   }
 
   countCoins(){
+    debugger
     let allCoins = this.getAllCoins();
+    debugger
+
     let result = {};
-    let amt = this.props.centValue;
+    let cents = 18;
+    // let amt = this.props.centValue;
     while (allCoins.length > 0){
       let currentCoin = allCoins[0];
-      if (amt - currentCoin >= 0){
+      if (cents - currentCoin >= 0){
         if (result[currentCoin]){
           result[currentCoin] += 1;
-          amt -= currentCoin;
+          cents -= currentCoin;
         } else{
           result[currentCoin] = 1;
-          amt -= currentCoin;
+          cents -= currentCoin;
         }
       } else {
         allCoins.shift();
       }
     }
+    debugger
     return result;
-  }
-
-  getAllCoins(){
-    let coins = [];
-    for (let key in this.state){
-      if (key[0] === "c"){
-        coins.push(this.state[key]);
-      }
-    }
-    return coins.sort((a,b) => a - b).reverse();
   }
 
   render(){
