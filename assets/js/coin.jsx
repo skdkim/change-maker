@@ -23,7 +23,7 @@ class Coin extends React.Component{
     return(
       <div className="coin">
         <div className="coinValue">{this.props.value}</div>
-        <Noti value={this.props.notiValue}pressed={this.props.pressed}/>
+        <Noti value={this.props.notiValue} pressed={this.props.pressed}/>
 
         <div className={"topOverlay " + (this.props.pressed ? "notiOn" : "notiOff")}
           id={this.props.idx} onClick={(e) => this.handleUpClick(e)}/>

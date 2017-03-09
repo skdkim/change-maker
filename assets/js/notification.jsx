@@ -6,14 +6,14 @@ class Noti extends React.Component{
   constructor(props){
     super();
     this.state = {
-      value : 3
+      value : 1
     };
   }
 
   render() {
     return (
-      <div className={"noti " + ((this.props.pressed && this.state.value !== 0) ? "" : "dpn")}>
-        <span>{this.props.value || 0}</span>
+      <div className={"noti " + ((this.props.pressed && this.props.value) ? "" : "dpn")}>
+        <span>{this.props.value}</span>
       </div>
     );
   }
