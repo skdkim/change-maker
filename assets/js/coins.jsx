@@ -1,6 +1,5 @@
 import React from 'react';
 import Coin from './coin';
-import Overlay from './overlay';
 
 require('../css/coins.css');
 
