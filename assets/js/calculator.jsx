@@ -39,7 +39,9 @@ class Calculator extends React.Component {
       errors : []
     });
 
-    let newNoti = this.countCoins();
+    let changeArr = this.countCoins();
+
+    this.convertChange(changeArr);
   }
 
   handleToggle(e){
@@ -83,31 +85,54 @@ class Calculator extends React.Component {
     return coins.sort((a,b) => a - b).reverse();
   }
 
-  countCoins(){
-    let allCoins = this.getAllCoins();
+  countCoins(allCoins = this.getAllCoins(), cents = this.state.centValue){
     if (this.state.errors.length > 0){
       return;
     }
 
-    let result = {};
-    let cents = this.state.centValue;
-    while (allCoins.length > 0){
-      let currentCoin = allCoins[0];
-      if (cents - currentCoin >= 0){
-        if (result[currentCoin]){
-          result[currentCoin] += 1;
-          cents -= currentCoin;
-        } else{
-          result[currentCoin] = 1;
-          cents -= currentCoin;
-        }
-      } else {
-        allCoins.shift();
+    let result = [];
+    let bestChange;
+
+    if (allCoins.length === 0 || cents === 0){
+      return result;
+    }
+
+    for (let i = 0; i < allCoins.length; i++){
+      let coin = allCoins[i];
+
+      if (coin > cents){
+        continue;
+      }
+
+      let remainder =  cents - coin;
+      let bestRemainder = this.countCoins(allCoins.slice(i), remainder);
+
+      if (!bestRemainder){
+        continue;
+      }
+
+      let change = [coin].concat(bestRemainder);
+
+      if (!bestChange || change.length < bestChange.length){
+        bestChange = change;
       }
     }
 
+    return bestChange;
+  }
+
+  convertChange(change) {
+    let coinObj = {};
+    for (let j = 0; j < change.length; j++){
+      if (coinObj[change[j]]){
+        coinObj[change[j]] += 1;
+      } else {
+        coinObj[change[j]] = 1;
+      }
+    }
+    
     this.setState({
-      allNoti : result
+      allNoti : coinObj
     });
   }
 
