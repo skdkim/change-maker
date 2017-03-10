@@ -85,7 +85,7 @@ class Calculator extends React.Component {
     return coins.sort((a,b) => a - b).reverse();
   }
 
-  countCoins(allCoins = this.getAllCoins(), cents = this.state.centValue){
+  countCoins(memo = {}, allCoins = this.getAllCoins(), cents = this.state.centValue){
     if (this.state.errors.length > 0){
       return;
     }
@@ -105,7 +105,16 @@ class Calculator extends React.Component {
       }
 
       let remainder =  cents - coin;
-      let bestRemainder = this.countCoins(allCoins.slice(i), remainder);
+      let newArr = allCoins.slice(i);
+      let id = newArr[0] + "-" + remainder;
+      let bestRemainder;
+
+      if (memo[id]){
+        bestRemainder = memo[id];
+      } else {
+        bestRemainder = this.countCoins(memo, newArr, remainder);
+        memo[id] = bestRemainder;
+      }
 
       if (!bestRemainder){
         continue;
@@ -130,7 +139,7 @@ class Calculator extends React.Component {
         coinObj[change[j]] = 1;
       }
     }
-    
+
     this.setState({
       allNoti : coinObj
     });
