@@ -2,6 +2,10 @@
 
 [Live Link!](https://skdkim.github.io/change-maker/)
 
+Check out my full [portfolio](http://www.davidkim.tech/)!
+
+![ss1](https://github.com/skdkim/change-maker/blob/master/docs/readMeImages/images/coinCounter.jpg)
+
 ##Technology
 This application was created with Vanilla JS using the React library.
 HTML and CSS was used for the design.
