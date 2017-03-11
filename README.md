@@ -4,7 +4,7 @@
 
 Check out my full [portfolio](http://www.davidkim.tech/)!
 
-![ss1](https://github.com/skdkim/change-maker/blob/master/docs/readMeImages/images/coinCounter.jpg)
+![ss1](https://github.com/skdkim/change-maker/blob/master/docs/readMeImages/coinCounter.jpg)
 
 ##Technology
 This application was created with Vanilla JS using the React library.
