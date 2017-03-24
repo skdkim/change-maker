@@ -82,7 +82,50 @@ class Calculator extends React.Component {
       return;
     }
 
-    return coins.sort((a,b) => a - b).reverse();
+    /*
+      IMPROVEMENT:
+      Record in the memo the length of the change array.
+      Every future attempt to create an amount of coins will continue to
+      the point where it is equal to the last cents
+
+      ie [25,10,7,1]
+
+      @ first loop before the 7 is not considered
+      memo = {
+        bestLength: 5,
+        10 : [10,1,1,1,1],
+      }
+
+      @ the moment the 7 is considered the memo updates
+      memo = {
+        bestLength: 2,
+        10 : [10,1,1,1,1],
+        7 : [7,7]
+      }
+
+      We the loop is not done yet because it needs to go through the 1's
+      aka it needs to give us {1 : [1,1,1,,1...]} x14
+
+      memo = {
+        bestLength: 2,
+        10 : [10,1,1,1,1],
+        7 : [7,7]
+      }
+
+      during the run of the 1's once the coins array becomes larger than 1
+      we will kill the execution
+
+      We wouldn't be able to know how long a change array is because we don't
+      know that length until it bubbles up, but we can count the recursive calls
+
+      We are not basing this improvement on assumptions that one coins
+      is better than 2 and one is the best we can do because that idea
+      is not scaleable. This improvement is based on the last best amount
+      of coins which can now be used in all cases.
+    */
+    // return coins.sort((a,b) => a - b).reverse();
+    return coins;
+
   }
 
   countCoins(memo = {}, allCoins = this.getAllCoins(), cents = this.state.centValue){
@@ -126,7 +169,6 @@ class Calculator extends React.Component {
         bestChange = change;
       }
     }
-
     return bestChange;
   }
 
